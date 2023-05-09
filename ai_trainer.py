@@ -1,5 +1,6 @@
 import pickle
 
+import numpy as np
 from keras import Sequential
 from keras.layers import Dense
 from keras.utils import np_utils
@@ -54,5 +55,18 @@ def cnn_model(train_x, train_y, test_x, test_y):
     model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='adam')
     # training the model for 10 epochs
     model.fit(train_x, train_y, batch_size=128, epochs=10, validation_data=(test_x, test_y))
-    save_ai(model)
+    score(model, test_x, test_y)
     return model
+
+def score(model, test_x, test_y):
+    test_y_pred = np.argmax(model.predict(test_x), axis=-1)
+    test_y_inverse = np.argmax(test_y, axis=1)
+    print('L\'ensemble de test :\n', test_y_inverse)
+    print('Prédictions sur l\'ensemble de test :\n', test_y_pred)
+    # print("\n")
+    print('20 premieres données de test :\n', test_y_inverse[:20])
+    print('20 premieres données de la prediction de test :\n', test_y_pred[:20])
+
+    # Calculer la précision du modèle sur l'ensemble de test
+    test_acc = model.evaluate(test_x, test_y)[1]
+    print('Précision sur l\'ensemble de test :', test_acc)
