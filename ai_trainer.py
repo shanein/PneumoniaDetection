@@ -37,10 +37,10 @@ def start_training():
     test_x = dataset.format_dataset(test_x, img_length)
     test_y = np_utils.to_categorical(test_y, 2)
 
-    return sequential(train_x, train_y, test_x, test_y)
+    return cnn_model(train_x, train_y, test_x, test_y)
 
 
-def sequential(train_x, train_y, test_x, test_y):
+def cnn_model(train_x, train_y, test_x, test_y):
     # building a linear stack of layers with the sequential model
     model = Sequential()
     # hidden layer
