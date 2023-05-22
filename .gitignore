@@ -1,2 +1,7 @@
 /.idea/*
-data.ai
+model.pkl
+model.keras
+model.h5
+.ipynb_checkpoints
+.Ds_Store
+~*.docx
