@@ -91,7 +91,7 @@ def start_training():
     test_y = np_utils.to_categorical(test_y, 2)
 
     #choose your model
-    model = cnn_model(train_x, train_y, test_x, test_y)
+    model = mlp_model(train_x, train_y, test_x, test_y)
 
     return model
 
@@ -118,7 +118,7 @@ def cnn_model(train_x, train_y, test_x, test_y):
     # looking at the model summary
     model.summary()
     # compiling the sequential model
-    model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer=tf.keras.optimizers.Adam())
+    model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer=tf.keras.optimizers.legacy.Adam())
     # training the model for 10 epochs
     history = model.fit(train_x, train_y, batch_size=128, epochs=10, validation_data=(test_x, test_y))
 
@@ -180,11 +180,12 @@ def vgg_model(list_x, list_y, test_x, test_Y):
     model = Model(inputs=base_model.input, outputs=predictions)
 
     # Compiler le modèle avec une fonction de perte de catégorie croisée, un optimiseur Adam et la métrique de précision
-    model.compile(loss='categorical_crossentropy', optimizer=tf.keras.optimizers.Adam(lr=0.001), metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.001), metrics=['accuracy'])
 
     # Entraîner le modèle en utilisant les images d'entraînement et les étiquettes correspondantes
-    model.fit(list_x, list_y, batch_size=128, epochs=10, validation_data=(test_x, test_Y))
+    history = model.fit(list_x, list_y, batch_size=128, epochs=10, validation_data=(test_x, test_Y))
 
+    eval_model(history)
     score(model, test_x, test_Y)
 
     # Évaluer le modèle sur l'ensemble de test
