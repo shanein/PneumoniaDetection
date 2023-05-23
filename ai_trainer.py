@@ -91,7 +91,7 @@ def start_training():
     test_y = np_utils.to_categorical(test_y, 2)
 
     #choose your model
-    model = mlp_model(train_x, train_y, test_x, test_y)
+    model = cnn_model(train_x, train_y, test_x, test_y)
 
     return model
 

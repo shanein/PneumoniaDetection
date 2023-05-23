@@ -1,5 +1,9 @@
 /.idea/*
 model.pkl
+mlp.pkl
+vgg.pkl
+model.pkl
+cnn.pkl
 model.keras
 model.h5
 .ipynb_checkpoints
