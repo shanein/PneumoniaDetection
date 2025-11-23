@@ -8,9 +8,9 @@ import glob
 
 
 class Dataset(Enum):
-    TRAIN = "../datasets/chest_Xray/train/"
-    TEST = "../datasets/chest_Xray/test/"
-    VAL = "../datasets/chest_Xray/val/"
+    TRAIN = "./datasets/chest_Xray/train/"
+    TEST = "./datasets/chest_Xray/test/"
+    VAL = "./datasets/chest_Xray/val/"
 
 
 class Values(Enum):
