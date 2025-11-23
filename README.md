@@ -3,7 +3,7 @@
 
 <details>
   <summary>Definition Computer Aided Diagnosis</summary>
-  CAD is an interdisciplinary technology combining elements of artificial intelligence and computer vision with radiological and pathology image processing. source(https://en.wikipedia.org/wiki/Computer-aided_diagnosis)
+  CAD is an interdisciplinary technology combining elements of artificial intelligence and computer vision with radiological and pathology image processing (https://en.wikipedia.org/wiki/Computer-aided_diagnosis).
 </details>
 
 PneumonialDetection est un projet de **diagnostic assisté par ordinateur** visant à aider les médecins à détecter la pneumonie à partir de radiographies thoraciques (chest X-ray).  
@@ -45,7 +45,6 @@ Dans chaque dossier, on retrouve :
 Structure de répertoire :
 
 ```bash
-.
 ├── PneumonialDetection.ipynb        # Notebook principal (expérimentations & résultats)
 ├── dataset.py            # Utilitaires pour charger/prétraiter les images
 ├── requirements.txt      # Dépendances Python
@@ -53,7 +52,7 @@ Structure de répertoire :
 └── README.md             # Ce fichier
 ```
 
-> ⚠️ **Important :** Le dossier `dataset` (extrait du zip Kaggle) doit se trouver **au même niveau** que le fichier `ZOIDBERG.ipynb` et `dataset.py`.
+> ⚠️ **Important :** Le dossier `dataset` (extrait du zip Kaggle) doit se trouver **au même niveau** que le fichier `PneumonialDetection.ipynb` et `dataset.py`.
 
 ---
 
@@ -114,7 +113,7 @@ chest_xray/
        └── PNEUMONIA/
 ```
 
-4. Déplacer ce dossier `dataset/` à la **racine du projet**, au même niveau que `ZOIDBERG.ipynb`.
+4. Déplacer ce dossier `dataset/` à la **racine du projet**, au même niveau que `pneumonialDetection.ipynb` et `dataset.py`.
 
 ---
 
@@ -163,9 +162,7 @@ Exemple de synthèse (test set) :
 
 ---
 
-## 7. Visualisations et rendus (à compléter avec vos captures)
-
-Les cellules du notebook génèrent plusieurs visualisations que vous pouvez intégrer dans ce README via des captures d’écran :
+## 7. Visualisations et rendus 
 
 **Exemple d'une pneumonie détectée par le modèle CNN :** (image d’entrée + label réel + prédiction)
 
